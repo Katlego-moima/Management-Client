@@ -11,7 +11,7 @@ const Login = () => {
 
   const navigate = useNavigate();
   axios.defaults.withCredentials = true;
-  const [error, setError] = useState();
+  const [error, setError] = useState(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -32,6 +32,9 @@ const Login = () => {
     <div className='d-flex justify-content-center align-items-center vh-100 loginPage'>
       <div className='p-3 rounded w-25 borde loginForm'>
         <h2>Login Form</h2>
+        <div className="text-warning">
+          {error && error}
+        </div>
         <form onSubmit={handleSubmit}>
           <div className='mb-3'>
             <label htmlFor='email'>
