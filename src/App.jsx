@@ -7,17 +7,19 @@ import Home from "./components/Home";
 import Category from "./components/Category";
 import Profile from "./components/Profile";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import AddCategory from "./components/AddCategory";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/adminlogin" element={<Login />} />
-        <Route path="/dashboard" element={<Dashboard />}> 
-        <Route path="" element={<Home />} />
-        <Route path="/dashboard/employee" element={<Employee />} />
-        <Route path="/dashboard/category" element={<Category />} />
-        <Route path="/dashboard/profile" element={<Profile />} />
+        <Route path='/adminlogin' element={<Login />} />
+        <Route path='/dashboard' element={<Dashboard />}>
+          <Route path='' element={<Home />} />
+          <Route path='/dashboard/employee' element={<Employee />} />
+          <Route path='/dashboard/category' element={<Category />} />
+          <Route path='/dashboard/profile' element={<Profile />} />
+          <Route path='/dashboard/addCategory' element={<AddCategory />} />
         </Route>
       </Routes>
     </BrowserRouter>
