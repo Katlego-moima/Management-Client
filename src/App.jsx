@@ -10,12 +10,16 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AddCategory from "./components/AddCategory";
 import AddEmployee from "./components/AddEmp";
 import EditEmployee from "./components/EditEmployee";
+import AuthPage from "./components/AuthPage";
+import EmployeeLogin from "./components/EmployeeLogin";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/adminlogin' element={<Login />} />
+        <Route path='/auth' element={<AuthPage />} />
+        <Route path='/adminLogin' element={<Login />} />
+        <Route path='/employeeLogin' element={<EmployeeLogin />} />
         <Route path='/dashboard' element={<Dashboard />}>
           <Route path='' element={<Home />} />
           <Route path='/dashboard/employee' element={<Employee />} />

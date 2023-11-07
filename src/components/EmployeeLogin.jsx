@@ -1,26 +1,23 @@
 import React, { useState } from "react";
-import "../styles/Login.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const Login = () => {
+const EmployeeLogin = () => {
   const [values, setValues] = useState({
-    email: "",
+    name: "",
     password: "",
   });
-
   const [error, setError] = useState(null);
   const navigate = useNavigate();
-  axios.defaults.withCredentials = true;
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     axios
-      .post("http://localhost:3200/auth/adminLogin", values)
+      .post("http://localhost:3200/employee/employeeLogin", values)
       .then((result) => {
         if (result.data.loginStatus) {
-          navigate("/dashboard");
+          navigate("/employeeDetail");
         } else {
           setError(result.data.Error);
         }
@@ -31,9 +28,9 @@ const Login = () => {
   return (
     <div className='d-flex justify-content-center align-items-center vh-100 loginPage'>
       <div className='p-3 rounded w-25 borde loginForm'>
-        <h2>Admin Login</h2>
+        <h2>Employee Login</h2>
         <div className='text-warning'>{error && error}</div>
-        <form onSubmit={handleSubmit}>
+        <form onClick={handleSubmit}>
           <div className='mb-3'>
             <label htmlFor='email'>
               <strong>Email:</strong>
@@ -77,4 +74,5 @@ const Login = () => {
     </div>
   );
 };
-export default Login;
+
+export default EmployeeLogin;

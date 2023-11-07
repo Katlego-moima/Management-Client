@@ -2,11 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "../styles/Employee.css";
-import { useNavigate } from "react-router-dom";
 
 const Employee = () => {
   const [employee, setEmployee] = useState([]);
-  const navigate = useNavigate();
 
   useEffect(() => {
     axios
@@ -26,7 +24,7 @@ const Employee = () => {
       .delete(`http://localhost:3200/auth/deleteEmployee/` + id)
       .then((result) => {
         if (result.data.Status) {
-          navigate("/dashboard/employee");
+          window.location.reload();
         } else {
           alert(result.data.Error);
         }
