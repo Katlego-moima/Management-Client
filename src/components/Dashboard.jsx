@@ -9,7 +9,7 @@ const Dashboard = () => {
   const handleLogout = () => {
     axios.get(`http://localhost:3200/auth/logout`).then((result) => {
       if (result.data.Status) {
-        navigate("/adminLogin");
+        navigate("/");
       }
     });
   };
