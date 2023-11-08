@@ -92,8 +92,8 @@ const Home = () => {
             </tr>
           </thead>
           <tbody>
-            {admins.map((ad) => (
-              <tr>
+            {admins.map((ad, index) => (
+              <tr key={index}>
                 <td>{ad.email}</td>
                 <td>
                   <button className='btn btn-info btn-sm me-2'>Edit</button>

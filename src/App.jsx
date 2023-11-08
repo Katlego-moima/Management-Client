@@ -12,6 +12,7 @@ import AddEmployee from "./components/AddEmp";
 import EditEmployee from "./components/EditEmployee";
 import AuthPage from "./components/AuthPage";
 import EmployeeLogin from "./components/EmployeeLogin";
+import EmployeeDetail from "./components/EmployeeDetail";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path='/auth' element={<AuthPage />} />
         <Route path='/adminLogin' element={<Login />} />
         <Route path='/employeeLogin' element={<EmployeeLogin />} />
+        <Route path='/employeeDetail/:id' element={<EmployeeDetail />} />
         <Route path='/dashboard' element={<Dashboard />}>
           <Route path='' element={<Home />} />
           <Route path='/dashboard/employee' element={<Employee />} />

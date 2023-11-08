@@ -65,13 +65,6 @@ const Login = () => {
           <button className='btn btn-success w-100 rounded-0 mb-2'>
             Login
           </button>
-          <div className='mb-1'>
-            <input type='checkbox' name='tick' id='tick' className='me-2' />
-            <label htmlFor='checkbox'>
-              {" "}
-              You agree with the terms & conditions
-            </label>
-          </div>
         </form>
       </div>
     </div>
