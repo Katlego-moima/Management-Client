@@ -17,6 +17,7 @@ const EmployeeLogin = () => {
       .post("http://localhost:3200/employee/employeeLogin", values)
       .then((result) => {
         if (result.data.loginStatus) {
+          localStorage.setItem("valid", true);
           navigate(`/employeeDetail/` + result.data.id);
         } else {
           setError(result.data.Error);
@@ -30,7 +31,7 @@ const EmployeeLogin = () => {
       <div className='p-3 rounded w-25 borde loginForm'>
         <h2>Employee Login</h2>
         <div className='text-warning'>{error && error}</div>
-        <form onClick={handleSubmit}>
+        <form onSubmit={handleSubmit}>
           <div className='mb-3'>
             <label htmlFor='email'>
               <strong>Email:</strong>

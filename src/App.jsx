@@ -6,14 +6,14 @@ import Employee from "./components/Employee";
 import Home from "./components/Home";
 import Category from "./components/Category";
 import Profile from "./components/Profile";
-import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AddCategory from "./components/AddCategory";
 import AddEmployee from "./components/AddEmp";
 import EditEmployee from "./components/EditEmployee";
 import AuthPage from "./components/AuthPage";
 import EmployeeLogin from "./components/EmployeeLogin";
 import EmployeeDetail from "./components/EmployeeDetail";
-import { useEffect } from "react";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   return (
@@ -23,7 +23,14 @@ function App() {
         <Route path='/adminLogin' element={<Login />} />
         <Route path='/employeeLogin' element={<EmployeeLogin />} />
         <Route path='/employeeDetail/:id' element={<EmployeeDetail />} />
-        <Route path='/dashboard' element={<Dashboard />}>
+        <Route
+          path='/dashboard'
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          }
+        >
           <Route path='' element={<Home />} />
           <Route path='/dashboard/employee' element={<Employee />} />
           <Route path='/dashboard/category' element={<Category />} />
